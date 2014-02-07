@@ -6,26 +6,27 @@ function [root, numIters] = falsepos(f,a,b,TOL,MaxIter)
 numIters = 2;
 q0 = f(a);
 q1 = f(b);
-
+prevroot = a;
+if (a == 0) prevroot = b; end;
+  
 while (numIters < MaxIter)
   root = b - q1*((b - a)/(q1 - q0));
-  
-  abs(root - prevroot)/abs(prevroot)
   
   if (abs(root - prevroot)/abs(prevroot) < TOL)
     return;
   end
   
   numIters = numIters + 1;
-  prevroot = f(root);
+  q = f(root);
+  prevroot = root;
   
-  if(prevroot*q1 < 0)
+  if(q*q1 < 0)
     a = b;
     q0 = q1;
   end
   
   b = root;
-  q1 = prevroot;
+  q1 = q;
   
 end
 

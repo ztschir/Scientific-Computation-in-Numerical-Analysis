@@ -6,23 +6,24 @@ function [root, numIters] = bisection(f,a,b,TOL,MaxIter)
 
 numIters = 1;
 FA = f(a);
-prevroot = FA;
+prevroot = a;
+if (a == 0) prevroot = b; end;
 
 while (numIters < MaxIter)
 
   root = a + (b - a)/2;
-
+  FROOT = f(root);
   
-  if (abs(f(root) - f(prevroot))/abs(prevroot) < TOL)
+  if (abs(root - prevroot)/abs(prevroot) < TOL)
     return;
   end
-  prevroot = f(root);
-  
+
   numIters = numIters + 1;
+  prevroot = root;
   
-  if (FA*prevroot > 0)
+  if (FA*FROOT > 0)
     a = root;
-    FA = prevroot    
+    FA = FROOT;
   else
     b = root;
   end
