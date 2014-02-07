@@ -1,0 +1,5 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% False Position Method %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+function [root, numIters] = falsepos(f,a,b,TOL,MaxIter)

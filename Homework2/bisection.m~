@@ -1,0 +1,15 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% Bisection Method %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+function [root, numIters] = bisection(f,a,b,TOL,MaxIter)
+
+i = 1;
+FA = f;
+
+
+
+
+
+
+end
