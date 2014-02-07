@@ -7,7 +7,10 @@ function [root, numIters] = secant(f,p0,p1,TOL,MaxIter)
 numIters = 1;
 q0 = f(p0);
 q1 = f(p1);
-if (p1 == 0) fprintf('p1 can not be zero'); end
+if (p1 == 0) 
+  fprintf('p1 can not be zero'); 
+  return; 
+end
   
 while (numIters < MaxIter)
   root = p1 - q1*((p1 - p0)/(q1 - p0));

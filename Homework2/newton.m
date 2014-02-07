@@ -5,7 +5,10 @@
 function [root, numIters] = newton(f,df,p0,TOL,MaxIter)
 
 numIters = 1;
-if (p0 == 0) fprintf('p0 can not be zero'); return; end
+if (p0 == 0) 
+  fprintf('p0 can not be zero'); 
+  return; 
+end
   
 while (numIters < MaxIter)
   root = p0 - f(p0)/df(p0);

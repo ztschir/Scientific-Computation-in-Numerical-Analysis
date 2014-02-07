@@ -1,0 +1,18 @@
+clear all;
+clc;
+
+f1 = @(x) (sin(x) - x - 1);
+f2 = @(x) (x*(1 - cos(x)));
+f3 = @(x) (exp(x) - x^2 + 3*x - 2);
+
+TOL = 10^-6
+MaxIter = 500;
+a = -2;
+b = 1;
+p0 = 1;
+p1 = 0.9;
+
+for f = {f1,f2,f3}
+  [root, numIters] = bisection(f,a,b,TOL,MaxIter)
+  fprintf('Bisection for %s root = %f and iterations = %i',f1,root,numIters)
+end
