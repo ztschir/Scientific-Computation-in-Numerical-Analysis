@@ -4,7 +4,7 @@
 
 function [root, numIters] = secant(f,p0,p1,TOL,MaxIter)
 
-numIters = 1;
+numIters = 2;
 q0 = f(p0);
 q1 = f(p1);
 if (p1 == 0) 
@@ -13,7 +13,7 @@ if (p1 == 0)
 end
   
 while (numIters < MaxIter)
-  root = p1 - q1*((p1 - p0)/(q1 - p0));
+  root = p1 - q1*((p1 - p0)/(q1 - q0));
   
   if (abs(p1 - p0)/abs(p0) < TOL)
     return;

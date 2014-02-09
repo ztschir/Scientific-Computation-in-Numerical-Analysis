@@ -1,0 +1,11 @@
+clear all;
+clc;
+
+for i = 1:126
+  [modroot(i), numIters] = modifiednewton(@(x) exp(-x^2)*(x-10)^5,@(x) -exp(-x^2)*((x-10)^4)*(2*x^2-20*x-5),3,5,10^-6,i);
+    [root(i), numIters] = newton(@(x) exp(-x^2)*(x-10)^5,@(x) -exp(-x^2)*((x-10)^4)*(2*x^2-20*x-5),3,10^-6,i);
+end
+
+semilogy(abs(root(i) .- 10), i, abs(modroot(i) .- 10), i)    
+
+
