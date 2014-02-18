@@ -1,0 +1,19 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% Neville's Method %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+function [y] = Neville(x_n,f_n,x)
+
+Q(:,1) = f_n;
+
+for i = 2:(len(x_n) + 1)
+  for j = 2:(i+1)
+    Q(i,j) = ((x - x_n(i-j))*Q(i,j-1) - (x - x(i))*Q(i-1,j-1)) / ...
+             (x(i) - x(i-j));
+  end
+end
+
+y = Q(end,end);
+
+end
