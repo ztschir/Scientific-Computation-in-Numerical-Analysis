@@ -24,19 +24,19 @@ plot(z,sin(z) - P);
 
 
 %%%%% 11 values %%%%%
-x_n = linspace(-pi,pi,11); 
+x_n = linspace(-1,1,11); 
 f_n = (1./(1+(25.*(x_n.^2)))); 
 j = 0:50; 
-z = -pi + pi*(j/25);
+z = -1 + (j/25);
 P = Neville(x_n,f_n,z);
 plot(z,(1 ./ (1 + (25.*z.^2))) - P);
 
 
 %%%%% 21 values %%%%%
-x_n = linspace(-pi,pi,21); 
+x_n = linspace(-1,1,21); 
 f_n = (1./(1+(25.*(x_n.^2)))); 
 j = 0:50; 
-z = -pi + pi*(j/25);
+z = -1 + (j/25);
 P = Neville(x_n,f_n,z);
 plot(z,(1 ./ (1 + (25.*z.^2))) - P);
 
