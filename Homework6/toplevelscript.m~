@@ -1,0 +1,30 @@
+
+%% Problem 3 %%
+
+f = @(x) exp(-x^2);
+g = @(x) 1/(2 + cos(x));
+h = @(x) exp(x)*cos(4*x);
+
+fprintf('exp(-x^2)\n');
+for k = 1:9
+  n = 2^k;
+  trap = compositetrapezoid(f,0,1,n);
+  simp = compositesimpson(f,0,1,n);
+  fprintf('n = %d trap = %f simp = %f\n',n,trap,simp);
+end
+
+fprintf('1/(2 + cos(x))\n');
+for k = 1:9
+  n = 2^k;
+  trap = compositetrapezoid(g,0,2*pi,n);
+  simp = compositesimpson(g,0,2*pi,n);
+  fprintf('n = %d trap = %f simp = %f\n',n,trap,simp);
+end
+
+fprintf('exp(x)*cos(4*x)\n');
+for k = 1:9
+  n = 2^k;
+  trap = compositetrapezoid(g,0,pi,n);
+  simp = compositesimpson(g,0,pi,n);
+  fprintf('n = %d trap = %f simp = %f\n',n,trap,simp);
+end

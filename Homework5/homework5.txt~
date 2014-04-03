@@ -1,0 +1,21 @@
+Problem 2
+c. 
+h = 0.05 error is 0.997499  and error ratio 1.007584 
+h = 0.025 error is 0.999375  and error ratio 1.001880 
+h = 0.0125 error is 0.999844  and error ratio 1.000469 
+h = 0.00625 error is 0.999961  and error ratio 1.000117 
+h = 0.003125 error is 0.99999  and error ratio 1.000029 
+
+d. The error term stops decreasing around h = 0.000390625
+
+
+Problem 3
+b. 
+h = 0.05 error is 0.0602525  and error ratio 0.483851 
+h = 0.025 error is 0.0296409  and error ratio 0.491944 
+h = 0.0125 error is 0.0147012  and error ratio 0.495977 
+h = 0.00625 error is 0.00732105  and error ratio 0.497990 
+h = 0.003125 error is 0.00365317  and error ratio 0.498995 
+
+
+c. The error term stops to decrease around h = 4.76837e-08

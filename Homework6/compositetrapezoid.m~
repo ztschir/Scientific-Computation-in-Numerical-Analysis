@@ -1,0 +1,6 @@
+
+function I = compositetrapezoid(f,a,b,n)
+  h = (b - a) / n;
+  x = a + h:h:b - h;
+  I = (h / 2) * (feval(f,a) + 2*sum(feval(f,x)) + feval(f,b));
+end

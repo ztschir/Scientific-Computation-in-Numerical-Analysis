@@ -1,0 +1,12 @@
+
+
+f = @(x) exp(x);
+dd_f = @(x,h) (-f(x + 2*h) + 16*f(x+h) - 30*f(x) + 16*f(x-h))/(12* ...
+                                                  h^2);
+p = 1:5;
+for h = .1/(2^p)
+  prev_error = error;
+  printf('error ratio %d', error/prev_error);
+  error = abs( f(0) - dd_f(0,h));
+end
+

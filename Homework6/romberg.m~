@@ -1,0 +1,16 @@
+function I = romberg(f,a,b,p)
+R(1,1) = ((b - a) / 2)*(f(a) + f(b));
+for k = 2:p+1
+  h = (b - a) / (2^(k-2)); 
+  R(k,1) = 0;
+  for j = 1:2^(k-2)
+    R(k,1) = R(k,1) + f(a + (2*j-1) * h); 
+  end
+  R(k,1) = (R(k-1,1) + h * (R(k,1)) / 2);
+end
+for k=2:p+1
+  for j=k:p+1
+    R(k,j) = ((4^(j-1)) * R(k,j-1) - R(k-1,j-1)) / (4^(j-1) - 1);
+  end
+end
+end
