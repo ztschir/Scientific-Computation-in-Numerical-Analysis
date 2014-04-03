@@ -1,0 +1,12 @@
+function p = eval_spline(x,C,z)
+
+% Evaluate the polynomial
+i = 1;
+for n=1:length(z)
+  p(i,1) = Cin(i,1) + ...
+           Cin(i,2)*(z(n)-x(i)) + ...
+           Cin(i,3)*(z(n)-x(i))^2 + ...
+           Cin(i,4)*(z(n)-x(i))^3;
+  i = i + 1
+end
+end
