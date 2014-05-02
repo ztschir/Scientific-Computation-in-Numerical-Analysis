@@ -1,0 +1,38 @@
+******************
+** Answers to 5 **
+******************
+
+Euler h = 0.200000 error = 0.014140 error ratio = 0.000000
+Euler h = 0.100000 error = 0.007203 error ratio = 1.962930
+Euler h = 0.050000 error = 0.003632 error ratio = 1.983470
+Euler h = 0.025000 error = 0.001823 error ratio = 1.992215
+Euler h = 0.012500 error = 0.000913 error ratio = 1.996225
+Euler h = 0.006250 error = 0.000457 error ratio = 1.998141
+
+RK2 h = 0.200000 error = 0.000537 error ratio = 0.000000
+RK2 h = 0.100000 error = 0.000128 error ratio = 4.182601
+RK2 h = 0.050000 error = 0.000031 error ratio = 4.085165
+RK2 h = 0.025000 error = 0.000008 error ratio = 4.041081
+RK2 h = 0.012500 error = 0.000002 error ratio = 4.020169
+RK2 h = 0.006250 error = 0.000000 error ratio = 4.009992
+
+RK4 h = 0.200000 error = 0.000001 error ratio = 0.000000
+RK4 h = 0.100000 error = 0.000000 error ratio = 16.983252
+RK4 h = 0.050000 error = 0.000000 error ratio = 16.467429
+RK4 h = 0.025000 error = 0.000000 error ratio = 16.227110
+RK4 h = 0.012500 error = 0.000000 error ratio = 16.134450
+RK4 h = 0.006250 error = 0.000000 error ratio = 16.077441
+
+AB4 h = 0.200000 error = 0.000064 error ratio = 0.000000
+AB4 h = 0.100000 error = 0.000007 error ratio = 8.616086
+AB4 h = 0.050000 error = 0.000001 error ratio = 14.074362
+AB4 h = 0.025000 error = 0.000000 error ratio = 15.567414
+AB4 h = 0.012500 error = 0.000000 error ratio = 15.924494
+AB4 h = 0.006250 error = 0.000000 error ratio = 15.996557
+
+AMB4 h = 0.200000 error = 0.000003 error ratio = 0.000000
+AMB4 h = 0.100000 error = 0.000001 error ratio = 5.236316
+AMB4 h = 0.050000 error = 0.000000 error ratio = 13.581313
+AMB4 h = 0.025000 error = 0.000000 error ratio = 15.634846
+AMB4 h = 0.012500 error = 0.000000 error ratio = 16.040517
+AMB4 h = 0.006250 error = 0.000000 error ratio = 16.088924

@@ -1,0 +1,43 @@
+function [L,U,P] = my_lu_piv(A)
+n = size(A,1); I = eye(n); O = zeros(n); L = I; U = O; P = I;
+function change_rows(k,p) ...
+    function change_L(k,p) ...
+for k = 1:n
+if k == 1, v(k:n) = A(k:n,k); else
+z = L(1:k-1,1:k -1)\ A(1:k-1,k); U(1:k-1,k) = z;
+v(k:n) = A(k:n,k)-L(k:n,1:k-1)*z;
+end
+if k<n
+x = v(k:n); p = (k-1)+find(abs(x) == max(abs(x))); % find index p change_rows(k,p);
+L(k+1:n,k) = v(k+1:n)/v(k);
+if k > 1, change_L(k,p); end
+end
+    U(k,k) = v(k);
+end end
+
+
+function [L U P] = Hw9LU(A)
+N = length(b);
+for c=1:(N-1)
+  [k,index] = max(abs(A(c:end,c)));
+  index = index+c-1;
+  temp = A(c,:);
+  A(c,:) = A(index,:);
+  A(index,:)  = temp;
+  temp = b(c);
+  b(c) = b(index);
+  b(index) = temp;
+  for r =(c+1):N
+    k = A(r,c)/A(c,c);
+    A(r,c:end) = A(r,c:end)-k*A(c,c:end);
+    b(r) = b(r)-k*b(c);
+  end
+end 
+for r=N:-1:1
+x(r) = b(r);
+  for i=(r+1):N
+    x(r)=x(r)-A(r,i)*x(i);
+  end
+x(r) = x(r)/A(r,r);
+end
+end
