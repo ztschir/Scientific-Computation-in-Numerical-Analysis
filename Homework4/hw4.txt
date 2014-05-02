@@ -1,0 +1,38 @@
+2b.
+cos(3pix) Natural h = 1.000000e-01 error is 0.1109853414 and error ratio is 0.000000
+cos(3pix) Natural h = 5.000000e-02 error is 0.0276130192 and error ratio is 4.019312
+cos(3pix) Natural h = 2.500000e-02 error is 0.0069422575 and error ratio is 3.977527
+cos(3pix) Natural h = 1.250000e-02 error is 0.0017311823 and error ratio is 4.010125
+cos(3pix) Natural h = 6.250000e-03 error is 0.0004328082 and error ratio is 3.999883
+
+2c.
+It looks like the rate of convergance is around h^2 for this method
+
+3b.
+cos(3pix) NotAknot h = 1.000000e-01 error is 0.1110050537 and error ratio is 0.000000
+cos(3pix) NotAknot h = 5.000000e-02 error is 0.0276130202 and error ratio is 4.020026
+cos(3pix) NotAknot h = 2.500000e-02 error is 0.0069422575 and error ratio is 3.977528
+cos(3pix) NotAknot h = 1.250000e-02 error is 0.0017311823 and error ratio is 4.010125
+cos(3pix) NotAknot h = 6.250000e-03 error is 0.0004328529 and error ratio is 3.999471
+
+3c.
+This is very similar to the rate of the second one, but I'm sure it's supposed to be different.
+
+4b.
+sin(4pix) Natural h = 1.000000e-01 error is 1.0000000000 and error ratio is 0.000000
+sin(4pix) Natural h = 5.000000e-02 error is 1.0000000000 and error ratio is 1.000000
+sin(4pix) Natural h = 2.500000e-02 error is 1.0000000000 and error ratio is 1.000000
+sin(4pix) Natural h = 1.250000e-02 error is 1.0000000000 and error ratio is 1.000000
+sin(4pix) Natural h = 6.250000e-03 error is 1.0000000000 and error ratio is 1.000000
+
+4c.
+The rate seems to be order h or so. This is different from 2 because of the function that it is approximating
+
+rho_36 = 993.6902
+c_36 = 1.5206e+03
+
+rho_68 = 979.0990
+c_68 = 1.5526e+03
+
+rho_96 = 960.4814
+c_96 = 1.5456e+03

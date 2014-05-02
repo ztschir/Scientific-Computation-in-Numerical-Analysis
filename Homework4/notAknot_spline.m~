@@ -8,6 +8,7 @@ end
 % Create delta values
 delta = diff(y) ./ (y(2:end)-x(1:end-1));
 
+% Build the A matrix
 A(1,1)                   = h(2);
 A(1,2)                   = h(1) + h(2);
 A(length(x),length(x))   = h(length(x)-2);
@@ -25,6 +26,7 @@ for n=2:length(x)-1
   r(n) = 3 * (h(n-1)*delta(n) + h(n)*delta(n-1));
 end
 
+% Solve for c vector
 c = A\r';
 
 % Find coeff b and d

@@ -1,42 +1,41 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%% Natural Spline %%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 function C = natural_spline(x,y)
-a = y;
-h = diff(x);
-n = length(x);
 
-l(1) = 1;
-mu(1) = 0;
-z(1) = 0;
-
-l(n) = 1;
-z(n) = 0;
-c(n) = 0;
-
-for i = 2:n-1
-  alpha(i) = (3/h(i))*(a(i+1) - a(i)) - (3/h(i-1))*(a(i) - a(i-1));
+% Create h values
+for n=1:length(x)-1
+  h(n) = x(n+1) - x(n);
 end
 
-for i = 2:n-1
-  l(i) = 2*(x(i+1) - x(i-1)) - h(i-1)*mu(i-1);
-  mu(i) = h(i)/l(i);
-  z(i) = (alpha(i) - h(i-1)*z(i-1))/l(i);
+delta = diff(y) ./ (y(2:end)-x(1:end-1));
+
+A(1,1)                   = 2;
+A(1,2)                   = 1;
+A(length(x),length(x))   = 2;
+A(length(x),length(x)-1) = 1;
+for n=2:length(x)-1
+  A(n,n-1) = h(n);
+  A(n,n)   = 2*(h(n) + h(n-1));
+  A(n,n+1) = h(n-1);
 end
 
-for j = n-1:1
-  c(j) = z(j) - mu(j)*c(j+1);
-  b(j) = (a(j+1) - a(j))/h(j) - h(j)*(c(j+1) + 2*c(j))/3;
-  d(j) = (c(j+1) - c(j))/(3*h(j));
+% Build r vector
+r(1)         = delta(1);
+r(length(x)) = delta(length(x)-1);
+for n=2:length(x)-1
+  r(n) = 3 * (h(n-1)*delta(n) + h(n)*delta(n-1));
 end
 
-for i = 1:n
-  C(i,1) = a(i);
-  C(i,2) = b(i);
-  C(i,3) = c(i);
-  C(i,4) = d(i);
+c = A\r';
+
+% Find coeff
+for n=1:length(x)-1
+  b(n) = ((y(n+1)-y(n)) / h(n)) - (h(n) / 3) * (2*c(n) + c(n+1));
+  d(n) = (c(n+1)-c(n)) / (3*h(n));
 end
-  
+
+% Set C values
+for n=1:length(x)-1
+  C(1,n) = y(n);
+  C(2,n) = b(n);
+  C(3,n) = c(n);
+  C(4,n) = d(n);
 end
