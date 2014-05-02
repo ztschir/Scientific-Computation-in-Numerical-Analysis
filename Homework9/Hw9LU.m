@@ -1,25 +1,18 @@
 function [L U P] = Hw9LU(A)
-N = length(b);
+N = size(A);
+N = N(1);
+L = eye(N);
+U = A;
+P = eye(N);
 for c=1:(N-1)
-  [k,index] = max(abs(A(c:end,c)));
-  index = index+c-1;
-  temp = A(c,:);
-  A(c,:) = A(index,:);
-  A(index,:)  = temp;
-  temp = b(c);
-  b(c) = b(index);
-  b(index) = temp;
+  [m,i] = max(abs(U(c:end,c)));
+  i = i+c-1;
+  U([c i],:) = U([i c],:);
+  P([c i],:) = P([i c],:);
   for r =(c+1):N
-    k = A(r,c)/A(c,c);
-    A(r,c:end) = A(r,c:end)-k*A(c,c:end);
-    b(r) = b(r)-k*b(c);
+    k = U(r,c)/U(c,c);
+    U(r,c:end) = U(r,c:end)-k*U(c,c:end);
+    L(r,c) = k;
   end
 end 
-for r=N:-1:1
-x(r) = b(r);
-  for i=(r+1):N
-    x(r)=x(r)-A(r,i)*x(i);
-  end
-x(r) = x(r)/A(r,r);
-end
 end
